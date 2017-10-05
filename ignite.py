@@ -298,3 +298,5 @@ class IgniteSecurityCheckFailed(IgniteFailed):
     def __init__(self, msg=''):
         super(IgniteSecurityCheckFailed, self).__init__(
             'Security Check Failed - {}'.format(msg))
+
+        
