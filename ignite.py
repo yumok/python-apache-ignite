@@ -33,8 +33,8 @@ class IgniteClient(object):
 
     def make_command(self, cmd, params=None):
         params = {} if params is None else params
-        params = urllib.urlencode(
-            {k: v for k, v in params.iteritems() if k and v})
+        params = urllib.parse.urlencode(
+            {k: v for k, v in iter(params.items()) if k and v})
         return requests.get('{endpoint}?cmd={command}&{params}'.format(endpoint=self._endpoint, command=cmd, params=params)).json()
 
     def log(self, from_=None, path=None, to=None):
